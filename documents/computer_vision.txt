@@ -1,0 +1,56 @@
+Lecture Notes — Computer Vision Fundamentals
+
+1. Image Representation
+A digital image is represented as a grid of pixels, each holding intensity
+values. Grayscale images have a single channel (0-255); color images
+typically have three channels (Red, Green, Blue). Images can be represented
+as tensors of shape (Height, Width, Channels) for processing by neural
+networks.
+
+2. Classical Techniques
+Edge detection (e.g., the Sobel or Canny operators) highlights regions of
+rapid intensity change, often corresponding to object boundaries. Histogram
+of Oriented Gradients (HOG) describes local shape by counting gradient
+orientation occurrences, historically used with SVMs for pedestrian
+detection. SIFT (Scale-Invariant Feature Transform) detects and describes
+local features that are invariant to scale and rotation, useful for image
+matching before deep learning became dominant.
+
+3. Image Classification
+Image classification assigns a single label to an entire image (e.g., "cat"
+or "dog"). Modern approaches use CNN architectures such as ResNet, which
+introduced residual (skip) connections that allow gradients to flow through
+very deep networks (50+ layers) without vanishing, and EfficientNet, which
+scales network depth, width, and resolution together for better
+accuracy-per-parameter.
+
+4. Object Detection
+Object detection both localizes (draws a bounding box around) and classifies
+multiple objects in an image. Two-stage detectors like Faster R-CNN first
+propose candidate regions, then classify each region. Single-stage detectors
+like YOLO (You Only Look Once) and SSD predict bounding boxes and class
+probabilities directly in one forward pass, trading some accuracy for much
+faster inference speed, which matters for real-time applications.
+
+5. Semantic and Instance Segmentation
+Semantic segmentation classifies every pixel in an image into a category
+(e.g., all "road" pixels), without distinguishing between individual object
+instances. Instance segmentation goes further, distinguishing between
+separate objects of the same class (e.g., "car 1" vs "car 2"). Mask R-CNN
+extends Faster R-CNN with a branch that predicts a segmentation mask for each
+detected object.
+
+6. Transfer Learning
+Rather than training a CNN from scratch, transfer learning starts from a
+model pretrained on a large dataset (e.g., ImageNet) and fine-tunes it on a
+smaller, task-specific dataset. This is effective because early layers of a
+CNN learn generic features (edges, textures) that transfer well across tasks,
+while later layers are fine-tuned to the specific task.
+
+7. Vision Transformers (ViT)
+Vision Transformers apply the Transformer architecture (originally designed
+for text) to images by splitting an image into fixed-size patches, treating
+each patch as a "token," and processing the sequence of patch embeddings with
+self-attention. ViTs can outperform CNNs on large datasets but generally
+require more training data to reach comparable accuracy, since they lack the
+built-in spatial inductive biases that convolutions provide.

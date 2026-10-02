@@ -1,0 +1,50 @@
+Lecture Notes — Machine Learning Fundamentals
+
+1. What is Machine Learning?
+Machine learning is a subfield of AI where systems learn patterns from data
+instead of being explicitly programmed with rules. A model is trained on
+example data to minimize a loss function, and the trained model is then used
+to make predictions on new, unseen data.
+
+2. Types of Learning
+Supervised learning uses labeled data (input-output pairs) to learn a mapping
+function, e.g., classifying emails as spam or not spam. Unsupervised learning
+finds structure in unlabeled data, e.g., clustering customers into segments.
+Reinforcement learning trains an agent to take actions in an environment to
+maximize cumulative reward, e.g., a game-playing agent.
+
+3. Bias-Variance Tradeoff
+High bias means a model is too simple and underfits the data (poor
+performance on both train and test sets). High variance means a model is too
+complex and overfits the training data (great train performance, poor test
+performance). The goal is to find a model complexity that minimizes total
+error on unseen data.
+
+4. Train/Validation/Test Split
+Data is typically split into a training set (to fit model parameters), a
+validation set (to tune hyperparameters and select models), and a test set
+(to report final, unbiased performance). A common split is 70/15/15 or
+80/10/10, though k-fold cross-validation is often preferred for smaller
+datasets.
+
+5. Common Algorithms
+Linear regression predicts a continuous value using a weighted sum of
+features. Logistic regression is used for binary classification and outputs
+a probability via the sigmoid function. Decision trees split data recursively
+based on feature thresholds. Random forests combine many decision trees to
+reduce variance. Support Vector Machines find the hyperplane that maximizes
+the margin between classes.
+
+6. Evaluation Metrics
+For classification: accuracy, precision, recall, F1-score, and ROC-AUC.
+Precision measures how many predicted positives were actually positive;
+recall measures how many actual positives were correctly identified. For
+regression: Mean Squared Error (MSE), Mean Absolute Error (MAE), and R-squared
+are common metrics.
+
+7. Regularization
+L1 regularization (Lasso) adds the absolute value of coefficients to the loss
+function and can drive some coefficients to exactly zero, performing feature
+selection. L2 regularization (Ridge) adds the squared value of coefficients,
+shrinking them but rarely to exactly zero. Both techniques reduce overfitting
+by penalizing large weights.

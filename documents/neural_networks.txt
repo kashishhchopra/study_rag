@@ -1,0 +1,54 @@
+Lecture Notes — Neural Networks and Deep Learning
+
+1. The Perceptron
+A perceptron computes a weighted sum of its inputs, adds a bias term, and
+passes the result through an activation function to produce an output. A
+single perceptron can only learn linearly separable patterns; stacking many
+of them into layers allows a network to learn non-linear decision boundaries.
+
+2. Activation Functions
+Sigmoid squashes values into the range (0, 1) but suffers from vanishing
+gradients for large inputs. Tanh squashes values into (-1, 1) and is
+zero-centered. ReLU (Rectified Linear Unit) outputs max(0, x) and is the most
+common choice in hidden layers because it is computationally cheap and
+mitigates vanishing gradients, though it can suffer from "dying ReLU" units
+that stop updating. Softmax is used in the output layer for multi-class
+classification, converting logits into a probability distribution.
+
+3. Backpropagation
+Backpropagation computes the gradient of the loss function with respect to
+each weight in the network using the chain rule, propagating error signals
+backward from the output layer to the input layer. These gradients are then
+used by an optimizer (e.g., gradient descent) to update the weights.
+
+4. Optimizers
+Stochastic Gradient Descent (SGD) updates weights using gradients computed on
+small mini-batches rather than the full dataset. Momentum adds a fraction of
+the previous update to the current one, smoothing convergence. Adam combines
+momentum with per-parameter adaptive learning rates and is a common default
+choice for training deep networks.
+
+5. Convolutional Neural Networks (CNNs)
+CNNs use convolutional filters (kernels) that slide across an input image to
+detect local patterns such as edges and textures. Pooling layers (e.g., max
+pooling) reduce spatial dimensions and provide translation invariance. CNNs
+are the dominant architecture for image classification, object detection, and
+other computer vision tasks because they exploit spatial locality and share
+weights across the image, reducing the number of parameters compared to a
+fully connected network.
+
+6. Recurrent Neural Networks (RNNs) and Transformers
+RNNs process sequential data by maintaining a hidden state that is updated at
+each time step, making them suitable for text and time series. However, RNNs
+struggle with long-range dependencies due to vanishing gradients. Long
+Short-Term Memory (LSTM) networks address this using gating mechanisms.
+Transformers replaced RNNs in most modern NLP systems by using a
+self-attention mechanism that lets every token attend to every other token in
+a sequence in parallel, removing the sequential bottleneck of RNNs.
+
+7. Overfitting Prevention in Deep Learning
+Dropout randomly disables a fraction of neurons during training, forcing the
+network to not rely on any single neuron. Batch normalization normalizes
+layer inputs to stabilize and speed up training. Early stopping halts
+training when validation loss stops improving, before the model starts to
+overfit the training data.

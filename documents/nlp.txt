@@ -1,0 +1,56 @@
+Lecture Notes — Natural Language Processing (NLP)
+
+1. Text Preprocessing
+Tokenization splits text into words or subword units. Stemming reduces words
+to a crude root form (e.g., "running" -> "run") using rule-based suffix
+stripping, while lemmatization reduces words to their dictionary base form
+using vocabulary and grammar rules, producing more accurate results at higher
+computational cost. Stop-word removal filters out common words (e.g., "the",
+"is") that carry little semantic meaning for many tasks.
+
+2. Word Representations
+One-hot encoding represents each word as a sparse vector with a single 1 in
+the position corresponding to that word, but captures no semantic
+relationships. Word2Vec and GloVe produce dense vector embeddings where
+semantically similar words are close together in vector space, trained by
+predicting a word from its context (or vice versa). These are "static"
+embeddings — a word has the same vector regardless of context.
+
+3. Contextual Embeddings and Transformers
+Unlike static embeddings, contextual embeddings (produced by models like BERT
+or GPT) generate a different vector for the same word depending on its
+surrounding context, e.g., "bank" in "river bank" vs. "bank account" gets
+different representations. These models are built on the Transformer
+architecture, which uses self-attention to weigh the relevance of every other
+token when encoding a given token.
+
+4. BERT vs. GPT
+BERT (Bidirectional Encoder Representations from Transformers) is trained
+using masked language modeling — predicting randomly masked words using both
+left and right context — making it well suited for understanding tasks like
+classification and question answering. GPT (Generative Pre-trained
+Transformer) is trained using next-token prediction (left-to-right only),
+making it naturally suited for text generation tasks.
+
+5. Retrieval-Augmented Generation (RAG)
+RAG combines a retrieval system (e.g., a vector database) with a generative
+language model. Instead of relying solely on knowledge baked into the model's
+parameters during training, RAG retrieves relevant text chunks from an
+external knowledge source at query time and includes them in the prompt,
+which reduces hallucination and allows the model to answer questions about
+information it was never trained on, such as private company documents.
+
+6. Common NLP Tasks
+Named Entity Recognition (NER) identifies and classifies entities in text
+(people, organizations, locations). Sentiment analysis classifies text as
+positive, negative, or neutral. Machine translation converts text from one
+language to another. Text summarization condenses a longer document into a
+shorter version while preserving key information, either extractively
+(selecting existing sentences) or abstractively (generating new sentences).
+
+7. Evaluation of Generative Text
+BLEU and ROUGE are common n-gram overlap metrics for comparing generated text
+against reference text, used in translation and summarization respectively.
+Perplexity measures how well a language model predicts a sample of text —
+lower perplexity indicates the model assigns higher probability to the actual
+next word, suggesting better predictive fit.
